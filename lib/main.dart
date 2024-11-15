@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       create: (_) => PostService.create(),
       dispose: (_, PostService service) => service.client.dispose(),
       child: MaterialApp(
-        title: 'Networking with HTTP and Chopper',
+        title: 'HTTP and Chopper',
         theme: ThemeData(primarySwatch: Colors.blue),
         home: const HomeScreen(),
       ),
@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Networking Example')),
+      appBar: AppBar(title: const Text('Network Details')),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -40,14 +40,15 @@ class HomeScreen extends StatelessWidget {
               context,
               MaterialPageRoute(builder: (context) => const HttpDataScreen()),
             ),
-            child: const Text('HTTP Data'),
+            child: const Text('HTTP'),
           ),
           ElevatedButton(
             onPressed: () => Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const ChopperDataScreen()),
+              MaterialPageRoute(
+                  builder: (context) => const ChopperDataScreen()),
             ),
-            child: const Text('Chopper Data'),
+            child: const Text('Chopper'),
           ),
         ],
       ),
